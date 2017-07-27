@@ -11,7 +11,4 @@ of using the `nanopb` mbed OS library.
 
 * 
 
-Example:
-```sh
-protoc --plugin=protoc-gen-nanopb=/../nanopb/generator/protoc-gen-nanopb --nanopb_out=. unionproto.proto
-```
+* 
