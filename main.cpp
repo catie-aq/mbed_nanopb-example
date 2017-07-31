@@ -24,7 +24,7 @@ namespace {
 #define PERIOD_MS 500
 }
 
-uint8_t buf_in[100], buf_out[100];
+uint8_t buf_in[50], buf_out[50];
 static Environment env_in, env_out;
 
 int main()
@@ -52,7 +52,7 @@ int main()
             printf("Decoding failed: %s\n", PB_GET_ERROR(&stream_in));
             continue;
         }
-        printf("Decoded values: temperature: %f , humidity: %f , pressure: %f\n", env_in.temperature, env_in.humidity, env_in.pressure);
+        printf("Decoded values (stub data): temperature: %3.2f , humidity: %3.2f , pressure: %3.2f\n", env_in.temperature, env_in.humidity, env_in.pressure);
 
         wait(PERIOD_MS);
     }
