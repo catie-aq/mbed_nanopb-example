@@ -1,17 +1,19 @@
 # nanopb-client-example
 
-**Important note**: This example may not work unless you properly configured Protocol Buffers and nanopb on your platform.
+**Important note**: This example _may not work_ unless you properly configured Protocol Buffers and nanopb on your platform.
 
-This application performs the serialization and deserialization of simulated environment data (stub). It is an example 
-of using the `nanopb` mbed OS library.
+This application performs the serialization and _deserialization_ of simulated environment data (stub). 
 
 ## Usage
 
-* Compile the .proto file: `protoc environment.proto --cpp-out=.`
+* Deploy the used libraries: `mbed deploy`
 
-* 
+* Compile the `.proto` file: 
 
-Example:
 ```sh
-protoc --plugin=protoc-gen-nanopb=/../nanopb/generator/protoc-gen-nanopb --nanopb_out=. unionproto.proto
+protoc --plugin=protoc-gen-nanopb=<path_to_nanopb_generator_protoc-gen-nanopc> --nanopb_out=. environment.proto
 ```
+
+* Compile the program for your target: `mbed compile`
+
+* Read from serial port: `cat /dev/ttyUSB?` to verify the correct behavior.
