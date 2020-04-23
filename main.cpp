@@ -54,6 +54,6 @@ int main()
         }
         printf("Decoded values (stub data): temperature: %3.2f , humidity: %3.2f , pressure: %3.2f\n", env_in.temperature, env_in.humidity, env_in.pressure);
 
-        wait(PERIOD_MS);
+        ThisThread::sleep_for(PERIOD_MS);
     }
 }
