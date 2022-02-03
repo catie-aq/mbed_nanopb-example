@@ -15,10 +15,11 @@
  * limitations under the License.
  */
 #include "mbed.h"
-#include "pb.h"
-#include "pb_encode.h"
-#include "pb_decode.h"
+
 #include "environment.pb.h"
+#include "pb.h"
+#include "pb_decode.h"
+#include "pb_encode.h"
 
 namespace {
 #define PERIOD_MS 500
@@ -39,7 +40,7 @@ int main()
     while (true) {
         printf("\nAlive!\n");
         printf("Encoding...\n");
-        if (!pb_encode(&stream_out, Environment_fields, &env_in)){
+        if (!pb_encode(&stream_out, Environment_fields, &env_in)) {
             printf("Encoding failed: %s\n", PB_GET_ERROR(&stream_out));
             continue;
         }
@@ -48,11 +49,14 @@ int main()
         printf("Decoding...\n");
         for (int i = 0; i < stream_out.bytes_written; ++i)
             buf_in[i] = buf_out[i];
-        if (!pb_decode(&stream_in, Environment_fields, &env_in)){
+        if (!pb_decode(&stream_in, Environment_fields, &env_in)) {
             printf("Decoding failed: %s\n", PB_GET_ERROR(&stream_in));
             continue;
         }
-        printf("Decoded values (stub data): temperature: %3.2f , humidity: %3.2f , pressure: %3.2f\n", env_in.temperature, env_in.humidity, env_in.pressure);
+        printf("Decoded values (stub data): temperature: %3.2f, humidity: %3.2f, pressure: %3.2f\n",
+                env_in.temperature,
+                env_in.humidity,
+                env_in.pressure);
 
         ThisThread::sleep_for(PERIOD_MS);
     }
