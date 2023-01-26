@@ -1,6 +1,5 @@
 # NanoPb client example
 
-[![pipeline status](https://gitlab.com/catie_6tron/nanopb-example/badges/master/pipeline.svg)](https://gitlab.com/catie_6tron/nanopb-example/commits/master)
 
 This application performs the serialization and deserialization of simulated environment data (stub).
 
